@@ -1,0 +1,30 @@
+@use "../../consts/const.scss" as const;
+.navigation{
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 200px;
+    .loginButtons{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+    .link{
+        gap: 10px;
+        display: flex;
+        align-items: start;
+        &.white{
+            color: white;
+        }
+        &.signup{
+            color: const.$bg;
+            background-color: white;
+            padding: 10px 20px;
+        }
+        & .homeUploadIcon{
+            width: 23px;
+        }
+    }
+}
