@@ -14,7 +14,7 @@ import Home from "./components/Home/Home.jsx";
 import App from "./App/App.jsx";
 import "./index.css";
 ("./components/Home/Home.jsx");
-
+import store from "./redux/store.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router}>
-    <Provider></Provider>
-  </RouterProvider>
+  <Provider store={store}>
+    <RouterProvider router={router}/>
+  </Provider>
 );

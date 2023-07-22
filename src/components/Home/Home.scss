@@ -38,24 +38,28 @@
   padding:120px 200px;
   height: calc(100vh - 100px);
   display: flex;
-  align-items: start;
   justify-content: space-between;
+  gap: 50px;
+  height: 85vh;
   .home-right{
     img{
-      width: 800px;
-    height:600px;
-    }
+      max-width: 800px;
+      height: 100%;
+}
   }
 
   .home-left{
-    padding: 50px 0;
-    height: 500px;
+    padding: 7vh 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     .upload-description{
       font-weight: 100;
       width: 600px;
+      p{
+        margin-top: 20px;
+      }
     }
     h1{
       font-weight: 200;
@@ -70,8 +74,8 @@
   background-color: #FFFFFF;
   border-width: 0;
   box-sizing: border-box;
-  color: #4d1d80;
-  color: #4d1d80;
+  color: #3e1d80;
+
   cursor: pointer;
   display: inline-block;
   font-family: Clarkson,Helvetica,sans-serif;
@@ -100,7 +104,7 @@
 .button-48:before {
   animation: opacityFallbackOut .5s step-end forwards;
   backface-visibility: hidden;
-  background-color: #bd104c;
+  background-color: #bd1061;
   clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
   content: "";
   height: 100%;
@@ -108,10 +112,6 @@
   position: absolute;
   top: 0;
   transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-  
-}
 
 .button-48:hover {
   color: white;
@@ -122,6 +122,10 @@
 
 .button-48:after {
   background-color: #FFFFFF;
+}
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+  
 }
 
 .button-48 span {

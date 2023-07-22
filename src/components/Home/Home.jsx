@@ -17,8 +17,8 @@ const Home = () => {
             In left-bottom you can see the chat, use it!
           </p>
           <Link className="home-link" to="upload">
-            <button class="button-48" role="button">
-              <span class="text">Upload</span>
+            <button className="button-48" role="button">
+              <span className="text">Upload</span>
             </button>
           </Link>
         </div>

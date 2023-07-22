@@ -2,6 +2,7 @@
 .container{
 
 }
+
 :root {
     --stripe-size: 100px;
     --color1: rgb(107, 117, 202);
@@ -16,4 +17,6 @@
   }
   
  
-  
+  .container{
+    position: relative;
+  }

@@ -13,7 +13,7 @@ function App() {
     <div style={{...AppStyle}} className="container">
       <Navigate to="main"/>
       <Outlet/>
-      <Chat/>
+      <Chat/> 
     </div>
   );
 }
