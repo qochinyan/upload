@@ -1,17 +1,19 @@
+@use "../../consts/const.scss"
+;
 .chat-container{
     position: absolute;
     left: 0;
-    bottom: 15px;
-
+    bottom: 0px;
+    z-index: 11111;
     padding: 12px 0 0   3px ;
     width: 300px;
     box-sizing: border-box;
     &.opening{
         animation: open-chat .4s linear;
-        bottom: 400px;
+        bottom: 0px;
     }&.closing{
         animation: close-chat .4s linear;
-        
+        bottom: -390px;
     }
     .chatOpenCloser{
         width: 30px;
@@ -25,6 +27,26 @@
     }
     .chat-box
     {   
+        .messages-box{
+            padding: 10px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 0px;
+            }
+            .oneMessage{
+                font-weight: 300;
+                color: white;
+                margin:0 0 5px 0;
+                max-width:100% ;
+                word-break: break-all;
+                .username{
+                    font-weight: 400;
+                }
+                .text{
+                    opacity: .9;
+                }
+            }
+        }
         display: flex;
         flex-direction: column;
         justify-content: end;
@@ -32,14 +54,25 @@
         height: 400px;  
         background: linear-gradient(to right bottom,#3d0d70 ,#5c0d70 );
         border: 2px solid #ffffff;
-        position: absolute;
+        position: relative;
         width: calc(100% - 15px);
-        input.chatSendingText{
+        .chat-input-box{
             width: 100%;
-            border: none;
+            
+            padding: 0 10px;
+            margin: 0;
+
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            .chatSendingText{
+                border: none;
             outline: none   ;
-            padding: 5px 10px;
+            width: 100%;
             font-family: "Montserrat";
+            padding: 5px 5px 5px 0;
+            color: const.$bg;
+            }
         }
     }
 }
@@ -47,22 +80,25 @@
     0%{
         bottom: 0px;
     }
-    80%{
-        bottom: 310px;
+    50%{
+        bottom: 40px;
     }
     100%{
-        bottom: 400px;
+        bottom: 0px;
     }
 }
 
 @keyframes close-chat{
     0%{
-        bottom: 400px;
+        bottom: 0px;
     }
-    80%{
-        bottom: 90px;
+    50%{
+        bottom: -2000px;
+    }
+    90%{
+        bottom: -500PX;
     }
     100%{
-        bottom: 15px;
+        bottom: -390px;
     }
 }

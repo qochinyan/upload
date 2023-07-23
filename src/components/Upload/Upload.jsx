@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Upload.scss";
 import uploadIcon from "../../assets/icon.png";
 import x from "../../assets/x.png";
 import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function Upload() {
   const [situation, setSituations] = useState({ uploadOpen: true });
+  const [files, setFiles] = useState([]);
   const changeUploadedFiles = (e) => {};
-
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch({type:"CLOSE_CHAT"})
+  },[])
   return (
     <>
       {situation.uploadOpen ? (
