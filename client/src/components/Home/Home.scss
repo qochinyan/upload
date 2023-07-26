@@ -117,7 +117,7 @@
     .button-48:hover {
       color: white;
       &::before{animation: opacityFallbackIn 0s step-start forwards;
-      clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);}
+      clip-path: polygon(0% -11%, 101% -10%, 101% 101%, 0% 101%);}
       
     }
     

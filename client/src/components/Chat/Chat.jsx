@@ -2,11 +2,39 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Chat.scss";
 import chatOpenCloserIcon from "../../assets/chatOpenCloser.png";
 import { useEffect, useMemo, useRef, useState } from "react";
+//
+import io from "socket.io-client";
 
+// Connect to the Socket.IO server
+const socket = io("http://localhost:5000"); // Replace the URL with your server's URL
+
+// Function to handle incoming messages
+
+//
 const Chat = () => {
   const [chatInputValue, setChatInputValue] = useState("");
   const [messages, setMessages] = useState([]);
-  let randomUserName = useMemo(()=>"Anonym"+Math.round((Math.random()*10000)),[])
+  // socket
+  useEffect(()=>{
+    socket.on("message", (message) => {
+      console.log(message)
+        displayMessage(message);
+    });
+  },[])
+  
+
+  function displayMessage(message) {
+    setMessages((e) => [...e, { text: message.text, author: message.author }]);
+  }
+
+  function sendMessageToServer() {
+    let message = { author: randomUserName, text: chatInputValue };
+    socket.emit("message", message);
+  }
+  let randomUserName = useMemo(
+    () => "Anonym" + Math.round(Math.random() * 10000),
+    []
+  );
   let isOpen = useSelector((state) => state.chat.open);
 
   let inputRef = useRef();
@@ -20,10 +48,16 @@ const Chat = () => {
     });
   };
   const sendMessage = (evt) => {
-    let newMessages = [...messages];
-    newMessages.push({ author: randomUserName, text: chatInputValue });
-    setMessages(newMessages);
-    setChatInputValue("");                                                          
+    if (chatInputValue) {
+      let newMessages = [...messages];
+      newMessages.push({ author: randomUserName, text: chatInputValue });
+      setMessages(newMessages);
+      setChatInputValue("");
+      inputRef.current.placeholder = "input message";
+      sendMessageToServer()
+    } else {
+      inputRef.current.placeholder = "text can't be empty";
+    }
     inputRef.current.focus();
   };
 
@@ -38,8 +72,9 @@ const Chat = () => {
       <div className="chat-box">
         <div className="messages-box">
           {messages.map((m, i) => (
-            <div className="oneMessage" key={i + "wwe"}>
-            <span className="username">{m.author}</span>: <span className="text">{m.text}</span>
+            <div className="oneMessage" key={i}>
+              <span className="username">{m.author}</span>:{" "}
+              <span className="text">{m.text}</span>
             </div>
           ))}
           <div ref={messagesEndRef} />
