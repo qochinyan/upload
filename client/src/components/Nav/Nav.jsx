@@ -9,12 +9,9 @@ function Nav() {
         <img className="homeUploadIcon" src={iconWhite} alt="" />
       </Link>
       <div className="loginButtons">
-        <Link className="link white login" to="login">
-          Login
-        </Link>
-        <Link className="link signup" to="registration">
+        <Link className="link signup" to="auth">
           <button className="button-92" role="button">
-            Sign Up
+            sign in
           </button>
         </Link>
       </div>

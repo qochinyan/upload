@@ -15,11 +15,13 @@ import App from "./App/App.jsx";
 import "./index.css";
 ("./components/Home/Home.jsx");
 import store from "./redux/store.js";
+import Auth from "./auth/auth.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="main/upload" element={<Upload />} />
       <Route path="/main" element={<Home />} />
+      <Route path="/auth"  element={<Auth/>} />
     </Route>
   )
 );
