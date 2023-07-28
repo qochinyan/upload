@@ -21,7 +21,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="main/upload" element={<Upload />} />
       <Route path="/main" element={<Home />} />
-      <Route path="/auth"  element={<Auth/>} />
+      <Route path="main/auth"  element={<Auth/>} />
     </Route>
   )
 );
