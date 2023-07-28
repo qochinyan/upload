@@ -8,7 +8,7 @@ const Login = () => {
     console.log("Successfully Authorised");
   };
   const onFailure = () => {
-    console.log("Successfully Authorised");
+    console.log("Authorisation Failed");
   };
   return (
     <GoogleLogin
