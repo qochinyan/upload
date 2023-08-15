@@ -1,6 +1,6 @@
 import "./Nav.scss";
 import iconWhite from "../../assets/iconWhite.png";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <header className="navigation">
